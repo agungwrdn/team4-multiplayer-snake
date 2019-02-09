@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Multiplayer Snake</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Palanquin+Dark" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../asset/css/style.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
+    <script src="../asset/js/client.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.5/push.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+</head>
+
+<body style="background-color:#FFF;">
+    <!-- <ul id="messages"></ul>
+    <div id="alerts" class="alert alert-info" style="position:absolute; z-index: 20;display: none">
+        <strong>Info! </strong> <h5 id="name"></h5> JOIN THE GAME
+    </div> -->
+    <div class="container">
+        <div class="row" id="field-input-username">
+            <div class="col col-md-8 inp">
+                <span id="input-m">Enter a name to join:</span><br />
+                <input name="name-input" id="name-input" type="text" />
+                <button id="enter" class="btn btn-success" onclick="buttonInput()">Enter</button><br />
+                <span id="err"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-md-8">
+                <div class="canv">
+                    <canvas id='c' width=660 height=660></canvas>
+                </div>
+            </div>
+            <div class="col col-md-4 score-container">
+                <div class="scores">
+                    <div class="head">
+                        <h2>Scores</h2>
+                    </div>
+                    <div class="body">
+                        <div class="row">
+                            <div class="col col-md-3">
+                                <div class="column-1">
+                                    <div class="sub-head">
+                                        <span class="head-text">
+                                            Rank
+                                        </span>
+                                    </div>
+                                    <div class="sub-body">
+                                        <ul id="rank-list">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-md-6">
+                                <div class="column-2">
+                                    <div class="sub-head">
+                                        <span class="head-text">
+                                            Player
+                                        </span>
+                                    </div>
+                                    <div class="sub-body">
+                                        <ul id="player-list">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-md-3 last">
+                                <div class="column-3">
+                                    <div class="sub-head">
+                                        <span class="head-text">
+                                            Score
+                                        </span>
+                                    </div>
+                                    <div class="sub-body">
+                                        <ul id="score-list">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    initGame();
+</script>
+
+</html>
