@@ -22,18 +22,18 @@
 - open in browser http://127.0.0.1:3000
 
 #Documentation Code
-|public
-|     |asset
-|         |css
-|            |style.css
-|         |js
-|            |client.js
-|     |index.html
-|server
-|    |server.js
-|    |setting.js
-|    |snake.js
-|app.js
+-|public
+-|     |asset
+-|         |css
+-|            |style.css
+-|         |js
+-|            |client.js
+-|     |index.html
+-|server
+-|    |server.js
+-|    |setting.js
+-|    |snake.js
+-|app.js
 
 - folder public berisikan source yang bisa dikonsumsi oleh public atau client
   - client.js berfungsi sebagai perantara interaksi response dari server menuju ke tampilan user.
@@ -46,6 +46,21 @@
   - buttonInput() // sebagai input username, checking kondisi username dan check user limit dan menghapus beberapa tampilan jika username berhasil di masukkan
   - addPlayerScore() // sebagai menambah score list di table score
   - updateScoreboard() // untuk mengupdate score board yang ada di list score yang telah di buat
-  - renderBoard() // menampilkan tampilan di bagian board seperti area, ularnya, makananya
-  
-- 
+  - renderBoard() // menampilkan tampilan di bagian board seperti area, ularnya, makananya 
+- server.js
+  - initServer() // sebagai inisialisai koneksi socketio dan deklarasi class snake
+  - variable connection // berisikan fungsi untuk menerima response dari emiter socket io berdasarkan nama
+  - gameEvent() // sebagai melemparkan event yang diterima ke sisi client side
+- setting.js
+  - berisikan boardSize yang dimunculkan dan warna untuk snake/karakter user
+- snake.js
+  - constructor() //adalah spesial method untuk pembuatan dan penginisialisasian objek yang dibuat dengan kelas
+  - addPlayer() // untuk melakukan set warna pada ularnya, menginisialisai data player, menentukan lokasi muncul saat pertama kali 
+  - killPlayer() // dimana mereset kondisi user ke kondi awal permainan, dan respawn user
+  - removePlayer() // menghilangkan data user dari socketio disaat kondisi socketio terputus atau browser tertutup
+  - createBoard() // 
+  - setListener() // menerima kejadian kejadian yang ada
+  - movePlayer() // mengatur gerak dari snake dan mengecek kondisi snake dalam kondisi kepala menyentuh badan atau tidak jika iya dia akan masuk killPlayer()
+  - spawnFood() // memunculkan makanan dengan kondisinya
+  - keyStroke() // menerima kondisi arah yang di request dari client ke server dan outpunya yaitu gerak snake
+  - gameUpdate() // dimana kondisi terbaru akan dilempar dari fungsi ini dari gerak, makanan, hingga close
