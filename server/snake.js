@@ -70,20 +70,20 @@ class Snake {
     }
 
     killPlayer(i, x, y) {
-        var name = this.playerList[i].name;
+        // var name = this.playerList[i].name;
         var socket = this.playerList[i].socket;
 
         var disconnectedPlayer;
 
         // reset player data
-        for (var i = 0; i < this.playerList.length; i++) {
-            if (this.playerList[i].socket == socket) {
+        for (var row = 0; row < this.playerList.length; row++) {
+            if (this.playerList[row].socket == socket) {
                 disconnectedPlayer = this.playerList[i];
 
                 this.clearPlayer(disconnectedPlayer);
 
-                this.playerList[i].size = 2;
-                this.playerList[i].head = this.spawnLocation();
+                this.playerList[row].size = 2;
+                this.playerList[row].head = this.spawnLocation();
 
                 this.playerList[i].tail.x = this.playerList[i].head.x - 1;
                 this.playerList[i].tail.y = this.playerList[i].head.y;
@@ -104,16 +104,16 @@ class Snake {
     removePlayer(socket) {
         var disconnectedPlayer;
         // disconnect player
-        for (var i = 0; i < this.playerList.length; i++) {
+        for (var rows = 0; rows < this.playerList.length; rows++) {
 
-            if (this.playerList[i].socket == socket) {
+            if (this.playerList[rows].socket == socket) {
 
-                disconnectedPlayer = this.playerList[i];
+                disconnectedPlayer = this.playerList[rows];
                 // makes colour available
-                var colour = this.playerList[i].colour;
-                for (var i = 0; i < this.playerColours.length; i++) {
-                    if (this.playerColours[i].hex == colour) {
-                        this.playerColours[i].val = false;
+                var colour = this.playerList[rows].colour;
+                for (var i = 0; i < this.playerColours.length; rows++) {
+                    if (this.playerColours[rows].hex == colour) {
+                        this.playerColours[rows].val = false;
                         break;
                     }
                 }
