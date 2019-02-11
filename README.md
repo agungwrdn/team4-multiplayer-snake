@@ -4,11 +4,12 @@
 - Download Git Here https://git-scm.com/downloads
 
 #How To Get
-- git clone git@github.com:agungwrdn/team4-multiplayer-snake.git
+- git clone https://github.com/agungwrdn/team4-multiplayer-snake.git
 
 #Installing
 #Windows
 - open nedejs terminal
+- git clone https://github.com/agungwrdn/team4-multiplayer-snake.git
 - cd ./team4-multiplayer-snake.git
 - npm install
 
